@@ -1,6 +1,25 @@
 # plot configuration
 
+# groupPlot = {}
+#
+# Groups of samples to improve the plots.
+# If not defined, normal plots is used
+#
 
+import copy
+
+origcuts=copy.deepcopy(cuts)
+
+print origcuts
+cuts = []
+
+
+for cut in origcuts:
+    print cut
+    for cat in origcuts[cut]['categories']:
+        cuts.append(cut+"_"+cat)
+
+print cuts
 
 # groupPlot = {}
 #
@@ -9,19 +28,26 @@
 #
 Red=632; Violet=880; Green=416; Orange=800; Yellow=400; Azure=860
 
+
 groupPlot['VV']  = {
                   'nameHR' : "VV",
                   'isSignal' : 0,
                   'color'    : Violet+10, # kViolet+10
-                  'samples'  : ['ZZ' , 'WZ' , 'DPS']
+                  'samples'  : ['ZZ','WZ', 'DPS']
               }
 
 groupPlot['VVV']  = {
-                  'nameHR' : 'VVV',
-                  'isSignal' : 0,
-                  'color': Green, # kGreen
-                  'samples'  : ['VVV']
-              }
+    'nameHR' : 'VVV',
+    'isSignal' : 0,
+    'color': Green, # kGreen
+    'samples'  : ['VVV']
+}
+groupPlot['TTV']  = {
+    'nameHR' : 'TTV',
+    'isSignal' : 0,
+    'color': Green, # kGreen
+    'samples'  : ['TTV']
+}
 
 
 
@@ -67,76 +93,77 @@ groupPlot['WW_EWK']  = {
 #
 ##Fake and prompt substraction
 plot['Fake_lep']  = {
-                  'color': Yellow,    # kYellow
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-              }
+    'color': Yellow,    # kYellow
+    'isSignal' : 0,
+    'isData'   : 0,
+    'scale'    : 1.0
+}
+
 ##Signal
 plot['WpWp_EWK']  = {
-                  'color': Azure+4, # kAzure+4
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
-##Irreducible Background
+    'color': Azure+4, # kAzure+4
+    'isSignal' : 0,
+    'isData'   : 0,
+    'scale'    : 1.0
+}
 plot['WW_strong']  = {
-                  'color': Violet, # kViolet
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
-
+    'color': Violet, # kViolet
+    'isSignal' : 0,
+    'isData'   : 0,
+    'scale'    : 1.0
+}
 
 plot['Vg']  = {
-                  'color': Orange+10, # kOrange+10
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
+    'color': Orange+10, # kOrange+10
+    'isSignal' : 0,
+    'isData'   : 0,
+    'scale'    : 1.0
+}
 ##Reducible Background
 ##VV plot
 plot['ZZ']  = {
-                  'color': Violet+10, # kViolet+10
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
+    'color': Violet+10, # kViolet+10
+    'isSignal' : 0,
+    'isData'   : 0,
+    'scale'    : 1.0
+}
 
 plot['WZ']  = {
-                  'color': Violet+10, # kViolet+10
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
-
+    'color': Violet+10, # kViolet+10
+    'isSignal' : 0,
+    'isData'   : 0,
+    'scale'    : 1.0
+}
 plot['DPS']  = {
-                  'color': Violet+10, # kViolet+10
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
+    'color': Violet+10, # kViolet+10
+    'isSignal' : 0,
+    'isData'   : 0,
+    'scale'    : 1.0
+}
 ##VVV
 plot['VVV']  = {
-                  'color': Green, # kGreen
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
-
+    'color': Green, # kGreen
+    'isSignal' : 0,
+    'isData'   : 0,
+    'scale'    : 1.0
+}
+plot['TTV']  = {
+    'color': Green+10, # kGreen
+    'isSignal' : 0,
+    'isData'   : 0,
+    'scale'    : 1.0
+}
 ##Data
-
 plot['DATA']  = {
-                  'nameHR' : 'Data',
-                  'color': 1 ,
-                  'isSignal' : 0,
-                  'isData'   : 1 ,
-                  'isBlind'  : 1 ,
-		  'scale'    : 1.0
-              }
-
+    'nameHR' : 'Data',
+    'color': 1 ,
+    'isSignal' : 0,
+    'isData'   : 1 ,
+    'isBlind'  : 0 ,
+    'scale'    : 1.0
+}
 
 # additional options
-legend['lumi'] = 'L = 59.7/fb'
-
+legend['lumi'] = 'L = 59.74/fb'
+#legend['lumi'] = 'L = 137.19/fb'
 legend['sqrt'] = '#sqrt{s} = 13 TeV'

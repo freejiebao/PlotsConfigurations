@@ -34,6 +34,11 @@ variables['mll']  = {   'name': 'mll',            #   variable name
                         'xaxis' : 'mll [GeV]',  #   x axis name
                         'fold' : 3
                         }
+variables['mll_v3']  = {   'name': 'mll',            #   variable name
+                        'range' : (12, 20. ,320),    #   variable range
+                        'xaxis' : 'mll [GeV]',  #   x axis name
+                        'fold' : 3
+                        }
 variables['mll_v2']  = {   'name': 'mll',            #   variable name
                            'range' : (80, 0. ,800),    #   variable range
                            'xaxis' : 'mll [GeV]',  #   x axis name
@@ -119,19 +124,3 @@ variables['Zlep2']  = {  'name': '(Alt$(Lepton_eta[1],-9999.) - (Alt$(Jet_eta[0]
                           'xaxis': 'Z^{lep}_{2}',
                           'fold': 3
                           }
-
-variables['csvv2ivf_1']  = {
-    'name': 'Alt$(Jet_btagCSVV2[0],0.)',
-    'range' : (10,0,1),
-    'xaxis' : 'csvv2ivf 1st jet ',
-    'fold'  : 3
-}
-
-
-
-variables['csvv2ivf_2']  = {
-    'name': 'Alt$(Jet_btagCSVV2[1],0.)',
-    'range' : (10,0,1),
-    'xaxis' : 'csvv2ivf 2nd jet ',
-    'fold'  : 3
-}

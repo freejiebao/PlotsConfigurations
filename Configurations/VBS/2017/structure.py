@@ -7,7 +7,7 @@
 
 ## Reducible Bkg
 
-'''
+
 structure['ChMisId']  = {
                   'isSignal' : 0,
                   'isData'   : 0
@@ -17,7 +17,6 @@ structure['ttbar'] = {
                   'isSignal' : 0,
                   'isData'   : 0
                   }
-'''
 structure['Vg']  = {
                   'isSignal' : 0,
                   'isData'   : 0
@@ -62,17 +61,6 @@ structure['Fake_lep']  = {
                   'isData'   : 0,
               }
 
-'''
-structure['Vg_promptSubtr']  = {
-                  'isSignal' : 0,
-                  'isData'   : 0
-              }
-
-structure['WZ_promptSubtr']  = {
-                  'isSignal' : 0,
-                  'isData'   : 0
-              }
-'''
 # data
 
 

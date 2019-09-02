@@ -2,7 +2,7 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='_v2'
+date='_2017'
 
 tag = 'VBS_SS'+date
 
@@ -27,7 +27,7 @@ samplesFile = 'samples.py'
 plotFile = 'plot.py'
 
 # luminosity to normalize to (in 1/fb)
-lumi = 41.5
+lumi = 1.0
 
 # used by mkPlot to define output directory for plots
 # different from "outputDir" to do things more tidy

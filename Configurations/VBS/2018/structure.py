@@ -6,6 +6,17 @@
 #
 
 ## Reducible Bkg
+
+
+structure['ChMisId']  = {
+                  'isSignal' : 0,
+                  'isData'   : 0
+              }
+
+structure['ttbar'] = {
+                  'isSignal' : 0,
+                  'isData'   : 0
+                  }
 structure['Vg']  = {
                   'isSignal' : 0,
                   'isData'   : 0

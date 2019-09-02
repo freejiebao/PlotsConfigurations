@@ -31,11 +31,83 @@ nuisances['lumi']  = {
     'type'  : 'lnN',
 }
 
+#### FAKES
+'''
+if Nlep == '2' :
+    # already divided by central values in formulas !
+    fakeW_EleUp       = fakeW+'_EleUp'
+    fakeW_EleDown     = fakeW+'_EleDown'
+    fakeW_MuUp        = fakeW+'_MuUp'
+    fakeW_MuDown      = fakeW+'_MuDown'
+    fakeW_statEleUp   = fakeW+'_statEleUp'
+    fakeW_statEleDown = fakeW+'_statEleDown'
+    fakeW_statMuUp    = fakeW+'_statMuUp'
+    fakeW_statMuDown  = fakeW+'_statMuDown'
+
+else:
+    fakeW_EleUp       = '( fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'lElUp       / fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l )'
+    fakeW_EleDown     = '( fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'lElDown     / fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l )'
+    fakeW_MuUp        = '( fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'lMuUp       / fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l )'
+    fakeW_MuDown      = '( fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'lMuDown     / fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l )'
+    fakeW_statEleUp   = '( fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'lstatElUp   / fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l )'
+    fakeW_statEleDown = '( fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'lstatElDown / fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l )'
+    fakeW_statMuUp    = '( fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'lstatMuUp   / fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l )'
+    fakeW_statMuDown  = '( fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'lstatMuDown / fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l )'
+
+## FIXME: check the 30% lnN
+nuisances['fake_syst']  = {
+    'name'  : 'CMS_fake_syst',
+    'type'  : 'lnN',
+    'samples'  : {
+        'Fake_lep' : '1.30',
+    },
+}
+
+nuisances['fake_ele']  = {
+    'name'  : 'fake_ele',
+    'kind'  : 'weight',
+    'type'  : 'shape',
+    'samples'  : {
+        'Fake_lep'     : [ fakeW_EleUp , fakeW_EleDown ],
+    },
+}
+nuisances['fake_ele_stat']  = {
+    'name'  : 'fake_ele_stat',
+    'kind'  : 'weight',
+    'type'  : 'shape',
+    'samples'  : {
+        'Fake_lep'      : [ fakeW_statEleUp , fakeW_statEleDown ],
+    },
+}
+
+nuisances['fake_mu']  = {
+    'name'  : 'fake_mu',
+    'kind'  : 'weight',
+    'type'  : 'shape',
+    'samples'  : {
+        'Fake_lep'     : [ fakeW_MuUp , fakeW_MuDown ],
+    },
+}
+
+
+nuisances['fake_mu_stat']  = {
+    'name'  : 'hww_fake_mu_stat',
+    'kind'  : 'weight',
+    'type'  : 'shape',
+    'samples'  : {
+        'Fake_lep'     : [ fakeW_statMuUp , fakeW_statMuDown ],
+    },
+}
+
+
+
 ################################ THEORY UNCERTAINTIES  #################################
 nuisances['QCDscale']  = {
     'name'  : 'QCDscale',
     'type'  : 'lnN',
     'samples'  : {
+        'ChMisId'  : '1.10',
+	    'ttbar'   : '1.10',
         'WZ'   : '1.10',
         'ZZ'   : '1.10',
         'VVV'  : '1.10',
@@ -62,14 +134,26 @@ nuisances['pdf']  = {
     'name'  : 'pdf',
     'type'  : 'lnN',
     'samples'  : {
-        'WZ'   : '1.01',
-        'ZZ'   : '1.01',
+        'ChMisId'  : '1.005',
+	'ttbar'   : '1.01',
+        'WZ'   : '1.04',
+        'ZZ'   : '1.04',
         'VVV'  : '1.01',
         'DPS'   : '1.01',
         'Vg'    : '1.01' ,
         'WpWp_EWK': '1.01' ,
         'WW_strong': '1.01' ,
     },
+}
+
+#FIXME: check this 3%
+nuisances['QCDscale_VZ']  = {
+    'name'  : 'QCDscale_VZ',
+    'samples'  : {
+        'WZ' : '1.03',
+        'ZZ' : '1.03',
+    },
+    'type'  : 'lnN'
 }
 
 
@@ -84,17 +168,15 @@ nuisances['WZ_norm']  = {
 }
 
 #7% of uncertainty due to systematic uncertainties on simulations
-
-# 30% of global uncertainty
-nuisances['fake_syst']  = {
-               'name'  : 'fake_syst',
-               'type'  : 'lnN',
+nuisances['charge_flip']  = {
+               'name'  : 'charge_flip',
                'samples'  : {
-                   'Fake_lep' : '1.30',
+                   'ChMisId'   : '1.07',
+				   'ttbar'   : '1.01',
                    },
-}
-
-
+               'type'  : 'lnN',
+              }
+'''
 
 # statistical fluctuation
 # on MC/data
